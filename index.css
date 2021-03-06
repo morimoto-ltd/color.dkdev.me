@@ -1,0 +1,56 @@
+/**
+ * Main css styles
+ */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 300ms ease 0s;
+}
+
+div {
+  border-radius: 10px;
+  box-shadow: 10px 10px 0px 0px rgba(0,0,0,0.2);
+}
+
+h1 {
+  width: 110px;
+  height: 70px;
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #050505;
+  text-transform: uppercase;
+  font-family: 'Ubuntu Mono', monospace;
+  border-radius: 10px 10px 0px 0px;
+  background: white;
+  font-size: 21px;
+}
+
+button {
+  width: 110px;
+  height: 40px;
+
+  border: 0;
+  outline: 0;
+
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  background: transparent;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid white;
+}
+button:hover {
+  background: rgba( 255, 255, 255, .15 )
+}
