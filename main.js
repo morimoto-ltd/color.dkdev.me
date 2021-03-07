@@ -42,11 +42,11 @@ const MAX_COLOR_DIFF = 130
  * @param {Number} b_min_value
  */
 class ColorGenerator {
-  #BACKGROUND_CONTAINER = document.body
-  #COLOR_CODE = document.querySelector( 'h1' )
-
-  #max_limit
-  #min_limit
+  // Private methods syntax isn't working in most mobile
+  // browsers, so I'm going to use double underscore for private fields
+  // and sigle underscore for protected fields
+  __BACKGROUND_CONTAINER = document.body
+  __COLOR_CODE = document.querySelector( 'h1' )
 
   constructor(
     r_max_value,
@@ -57,12 +57,12 @@ class ColorGenerator {
     g_min_value,
     b_min_value,
   ) {
-    this.#max_limit = {
+    this.__max_limit = {
       r: r_max_value || R_DEFAULT_MAX_VALUE,
       g: g_max_value || G_DEFAULT_MAX_VALUE,
       b: b_max_value || B_DEFAULT_MAX_VALUE,
     }
-    this.#min_limit = {
+    this.__min_limit = {
       r: r_min_value || R_DEFAULT_MIN_VALUE,
       g: g_min_value || G_DEFAULT_MIN_VALUE,
       b: b_min_value || B_DEFAULT_MIN_VALUE,
@@ -84,8 +84,8 @@ class ColorGenerator {
     // Instead, they will evenly spread across the accepted interval.
 
     // Getting limitations for the color
-    const { [color]:max_value } = this.#max_limit
-    const { [color]:min_value } = this.#min_limit
+    const { [color]:max_value } = this.__max_limit
+    const { [color]:min_value } = this.__min_limit
 
     // The interval can't be less then 1
     const accepted_interval = Math.max( max_value - min_value, 1 )
@@ -139,8 +139,8 @@ class ColorGenerator {
   updateBackground() {
     const new_color = this.generateRandomColor()
 
-    this.#BACKGROUND_CONTAINER.style.backgroundColor = new_color
-    this.#COLOR_CODE.innerText = new_color
+    this.__BACKGROUND_CONTAINER.style.backgroundColor = new_color
+    this.__COLOR_CODE.innerText = new_color
   }
 }
 
